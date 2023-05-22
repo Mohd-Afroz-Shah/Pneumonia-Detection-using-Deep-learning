@@ -68,3 +68,8 @@ This means 70% of data is used for training purpose, 27% for testing and remaini
 ![WhatsApp Image 2023-05-22 at 11 59 57 AM (5)](https://github.com/Mohd-Afroz-Shah/Pneumonia-Detection-using-Deep-learning/assets/98610550/760a0921-124e-4bed-8dc6-6d5fa1939be3)
 
 ![WhatsApp Image 2023-05-22 at 11 59 57 AM](https://github.com/Mohd-Afroz-Shah/Pneumonia-Detection-using-Deep-learning/assets/98610550/509481c3-e441-46ed-b410-695289e31aea)
+
+# Made by 
+1. Shah Mohd Afroz Gulam Samdani
+2. Ansari Mohsin Ahmed Aleem Ahmed
+3. Lashkar Aidihim Manjoor
