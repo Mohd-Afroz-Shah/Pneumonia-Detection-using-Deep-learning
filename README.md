@@ -57,3 +57,4 @@ This means 70% of data is used for training purpose, 27% for testing and remaini
 
 # Images of the project
 
+![Graph result](https://github.com/Mohd-Afroz-Shah/Pneumonia-Detection-using-Deep-learning/assets/89603686/969fd719-0752-4d28-a73e-7ee9fe15d39d)
