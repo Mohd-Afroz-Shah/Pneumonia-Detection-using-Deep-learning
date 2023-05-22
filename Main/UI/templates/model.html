@@ -1,0 +1,18 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pyttsx3/2.90/pyttsx3.min.js"></script>
+{% extends 'result.html' %}
+{% block result%}
+{%if result=="normal" %}
+<div id="normal"></div>
+{%elif result=="pneumonia" %}
+<div id="pneumonia"></div>
+{%endif%}
+<h1>{{result}}</h1>
+<script>
+$(document).ready(function() {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = '{{ result }}';
+    window.speechSynthesis.speak(msg);
+});
+</script>
+{% endblock %}

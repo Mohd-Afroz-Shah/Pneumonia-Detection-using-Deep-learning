@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+ <title>Diagnosis of Chest X-Ray</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/fonts/icomoon/style.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap.min.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/jquery-ui.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/owl.carousel.min.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/owl.theme.default.min.css') 
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/jquery.fancybox.min.css') 
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/jquery.fancybox.min.css') 
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap-datepicker.css')
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/jquery.fancybox.min.css') 
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/bootstrap-datepicker.css') 
+}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/fonts/flaticon/font/flaticon.css') 
+}}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/aos.css') }}">
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/style.css') }}">
+ <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/css/image_upload.css') 
+}}">-->
+ <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+ <style>
+ .box__dragndrop,
+ .box__uploading,
+ .box__success,
+ .box__error {
+ display: none;
+ }
+ 
+ img {
+ max-width: 180px;
+ }
+ 
+ input[type=file] {
+ padding: 10px;
+ background: #2d2d2d;
+ }
+ img.rounded-corner {
+ border-image: 30px;
+ }
+ body, html {
+ height: 100%;
+ margin: 0;
+ font-family: Arial, Helvetica, sans-serif;
+ }
+ .hero-image {
+ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+url(/static/styles/images/c12.jpg);
+ height: 100%;
+ background-position: center;
+ background-size: cover;
+ position: relative;
+ }
+ .hero-text {
+ text-align: center;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ color: white;
+ }
+ hero-text button {
+ border: none;
+ outline: 0;
+ display: inline-block;
+ padding: 10px 25px;
+ color: black;
+ background-color: #ddd;
+ text-align: center;
+ cursor: pointer;
+ }
+ .hero-text button:hover {
+ background-color: #555;
+ color: white;
+ }
+ .button {
+ padding: 15px 25px;
+ font-size: 24px;
+ text-align: center;
+ cursor: pointer;
+ outline: none;
+ color: #fff;
+ background-color: #4CAF50;
+ border: none;
+ border-radius: 15px;
+ box-shadow: 0 9px #999;
+ }
+ .button:hover {
+ background-color: #3e8e41
+ }
+ .button:active {
+ background-color: #3e8e41;
+ box-shadow: 0 5px #666;
+ transform: translateY(4px);
+ }
+ </style>
+</head>
+<body>
+    <div class="hero-image">
+    <div class="hero-text">
+    <form class="box" method="post" action="/predict" enctype="multipart/form-data">
+    <div class="box__input">
+    <h1>Upload an Chest X-Ray Image </h1>
+    <center><input type="file" name="image" onchange="readURL(this);" 
+   /></center><br>
+    <div><center><img id="blah" 
+   src="http://giphygifs.s3.amazonaws.com/media/G5ZzaFMyDNoPu/giphy.gif" alt="your image" 
+   height="200px" width="200px" /></center></div>
+    <div><center><button type="submit" 
+        class="button">Predict</button></center></div> 
+        <div>{%block result%}{%endblock%}</div>
+    </div>
+    </form>
+    </div>
+    </div>
+   <script src="{{ url_for('static', filename='styles/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery-ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery.easing.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/jquery.sticky.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <!--<script src="{{ url_for('static', filename='styles/js/image_upload.js') }}"></script>-->
+    <script>
+    const ctx = document.getElementById('predictions-chart');
+   
+    const labels = [''Pneumonia', 'normal'];
+ if (ctx !== null) {
+ let predictions = {{ predictions }};
+ predictions = predictions.map((prediction) => prediction*100);
+ const myBarChart = new Chart(ctx, {
+ type: 'bar',
+ data: {
+ labels: labels,
+ datasets: [
+ {
+ label: 'Predictions',
+ backgroundColor: 'rgba(220,220,220,1)', 
+ data: predictions
+ }
+ ]
+ },
+ options: {
+ responsive: true,
+ scales: {
+ xAxes: [{
+ display: true,
+ gridLines: {
+ display: true,
+ color: '#555',
+ },
+ ticks: {
+ fontColor: '#fff'
+ }
+ }],
+ yAxes: [{
+ display: true,
+ gridLines: {
+ display: true,
+ color: '#555',
+ },
+ ticks: {
+ fontColor: '#fff'
+ }
+}]
+ }
+ }
+ });
+ }
+ function readURL(input) {
+ if (input.files && input.files[0]) {
+ var reader = new FileReader();
+ 
+ reader.onload = function (e) {
+ $('#blah').attr('src', e.target.result);
+ };
+ 
+ reader.readAsDataURL(input.files[0]);
+ }
+ }
+</script>
+</body>
+</html>

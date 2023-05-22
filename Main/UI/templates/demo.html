@@ -1,0 +1,22 @@
+<html>
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<h3>Click on each picture to hear a different voice</h3>
+<div class="row">
+  <div class="column">
+    <img src="https://www.itnonline.com/sites/default/files/styles/content_large/public/GettyImages-1140483100.jpg" id='normalimg' style="width:25%">
+  </div>
+  <div class="column">
+    <img src="https://assets.cureus.com/uploads/figure/file/178826/lightbox_d5fb4780505111eba7d4a3f610d63647-thumbnail_Image1.png" id='pneumoniaimg' style="width:25%">
+  </div>
+</div>
+<script>
+$('#normalimg').on('click', function(){
+  responsiveVoice.speak("Result is normal", "US English Female", {rate: 0.5, pitch: 2});
+})
+
+$('#pneumoniaimg').on('click', function(){
+  responsiveVoice.speak("Affected by pneumonia", "US English Female", {rate: 0.5, pitch: 2});
+})
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="Novice-AI">
+   <title>Diagnosis of Pneoumonia X-Ray</title>
+   <!--External CSS-->
+   <link rel="stylesheet" type="text/css" href="/index.css">
+   <link rel="stylesheet" href="/static/style.css">
+   <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="d-flex flex-column h-100 reveal-fx--translate-up" style="
+ background-image: url('/static/styles/images/c1.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;">
+   <nav class="navbar" style="margin-bottom: 
+5%; background-color: #2d3436;">
+      <!-- Brand -->
+      <span class="navbar-brand text-light" href="#">Computer-Aided Diagnosis of Chest X-Ray</span>
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+   </nav>
+
+   <!-- Begin page content -->
+   <main role="main" class="flex-shrink-0">
+      <div class="container mt-5 " id="era" style="padding: 0 10% 2% 10%;background: 
+   #2d3436;box-shadow: 0px 3px 13px #2d3436;">
+         <form method="POST" enctype="multipart/form-data">
+            <h1 class="text-center pt-5 font-family-title justified-text">Welcome to Our Project Detection of Pneoumonia
+               on Using Deep
+               Learning</h1>
+            <div class="login-box text-center">
+               <form>
+                  <a href="{{ url_for('image_upload') 
+                }}">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     Continue
+                  </a>
+               </form>
+            </div>
+         </form>
+      </div>
+   </main>
+   <div class="container my-5 p-0" id="detailsofpneumonia">
+      <div>
+         <img class="sized-image float-start" src="/images/person1_bacteria_1.jpeg" alt="person1_bacteria1.jpeg">
+         <img class="sized-image float-end image-right" src="/images/person1_bacteria_2.jpeg"
+            alt="person1_bacteria2.jpeg">
+      </div>
+      <div class="pneumonia-text no-text-shadow">
+         Pneumonia is a respiratory infection that affects the lungs, causing inflammation and filling them with fluid
+         or pus. It can be caused by a variety of microorganisms, such as bacteria, viruses, or fungi. The symptoms of
+         pneumonia can range from mild to severe and can include cough, fever, difficulty breathing, chest pain, and
+         fatigue. Pneumonia can be particularly dangerous for young children, the elderly, and individuals with weakened
+         immune systems. Treatment for pneumonia typically involves antibiotics, antiviral medications, or antifungal
+         drugs depending on the underlying cause. In severe cases, hospitalization may be necessary to provide oxygen
+         and respiratory support. To prevent pneumonia, individuals can practice good hygiene, such as washing their
+         hands frequently, avoiding close contact with people who are sick, and getting vaccinated against bacterial and
+         viral infections that can lead to pneumonia.<br>
+         One of the key challenges in managing pneumonia is early diagnosis, as symptoms can be similar to other
+         respiratory illnesses. This project aims to address this challenge by providing a tool for early detection of
+         pneumonia through the analysis of chest X-rays. By using machine learning algorithms, the project can quickly
+         and accurately identify X-rays that show signs of pneumonia, allowing for timely treatment and ultimately
+         improving patient outcomes<br>
+         <b>References:</b><br>
+         <ol>
+            <li><a href="https://www.who.int/news-room/fact-sheets/detail/pneumonia">World Health Organization:
+                  Pneumonia Fact Sheet</a></li>
+            <li><a href="https://www.cdc.gov/pneumonia/index.html">Centers for Disease Control and Prevention:
+                  Pneumonia</a></li>
+            <li><a href="https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204">Mayo
+                  Clinic: Pneumonia</a></li>
+         </ol>
+      </div>
+      <!-- <img class="sized-image float-start" src="/images/person1_bacteria_1.jpeg" alt="person1_bacteria1.jpeg">
+      <img class="sized-image float-end" style="margin-left: 735px;" src="/images/person1_bacteria_2.jpeg" alt="person1_bacteria2.jpeg"> -->
+
+   </div>
+   <footer class="footer mt-auto py-3">
+      <div class="container">
+         <span>Made by: Ansari Mohsin Ahmed Aleem Ahmed, Shah Mohd Afroz Gulam Samdani, Lashkar Aidihim Manjoor</span>
+      </div>
+   </footer>
+</body>
+
+</html>
